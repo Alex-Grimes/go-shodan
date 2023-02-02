@@ -20,4 +20,9 @@ func main() {
 	}
 	fmt.Println(string(body))
 	resp.Body.Close()
+
+	resp, err = http.Head("https://www.google.com/robots.txt")
+	if err != nil {
+		log.Panicln(err)
+	}
 }
