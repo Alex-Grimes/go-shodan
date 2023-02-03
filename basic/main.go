@@ -42,4 +42,28 @@ func main() {
 	}
 	resp.Body.Close()
 	fmt.Println(resp.Status)
-}
+
+	req, err := http.NewRequest("DELETE", "https://www.google.com/robots.txt", nil)
+	if err != nil {
+		log.Panicln(err)
+	}
+	var client http.Client
+	resp, err = client.Do(req)
+	if err != nil {
+		log.Panicln(err)
+	}
+	resp.Body.Close()
+	fmt.Println(resp.Status)
+
+	req, err = http.NewRequest("PUT", "https://www.google.com/robots.txt", strings.NewReader(form.Encode()))
+
+	if err != nil {
+		log.Panicln(err)
+	}
+	resp, err = client.Do(req)
+	if err != nil {
+		log.Panicln(err)
+	}
+	resp.Body.Close()
+	fmt.Println(resp.Status)
+}+
