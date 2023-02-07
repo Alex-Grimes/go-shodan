@@ -1,4 +1,4 @@
-module meta-data/metadata
+module github.com/alex-grimes/meta-data/metadata
 
 go 1.20
 
